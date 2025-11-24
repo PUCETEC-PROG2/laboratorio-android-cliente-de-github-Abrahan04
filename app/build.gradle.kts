@@ -1,3 +1,6 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -16,18 +19,20 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // Configurar la variable de entorno desde .env
-        val envFile = rootProject.file(".env")
-        val githubToken = if (envFile.exists()) {
-            envFile.readLines()
-                .firstOrNull { it.startsWith("GITHUB_API_TOKEN=") }
-                ?.substringAfter("GITHUB_API_TOKEN=")
-                ?.trim()
-                ?: ""
-        } else {
-            ""
+        // --- SOLUCIÓN DEL ERROR DEL TOKEN ---
+        // Configurar la variable de entorno desde local.properties
+        val localProperties = Properties()
+        val localPropertiesFile = rootProject.file("local.properties")
+
+        if (localPropertiesFile.exists()) {
+            localProperties.load(FileInputStream(localPropertiesFile))
         }
+
+        val githubToken = localProperties.getProperty("GITHUB_API_TOKEN") ?: ""
+
+        // Inyectar el token en BuildConfig
         buildConfigField("String", "GITHUB_API_TOKEN", "\"$githubToken\"")
+        // -------------------------------------
     }
 
     buildTypes {
@@ -55,7 +60,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -67,10 +71,10 @@ dependencies {
 
     // Retrofit para networking
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
-// Convertidor Gson para serializar/deserializar JSON
+    // Convertidor Gson para serializar/deserializar JSON
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-// (Opcional pero recomendado) Interceptor de logs para depurar las llamadas de red
+    // Interceptor de logs para depurar las llamadas de red
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
-// Glide para cargar imágenes desde URLs
+    // Glide para cargar imágenes desde URLs
     implementation("com.github.bumptech.glide:glide:4.16.0")
 }

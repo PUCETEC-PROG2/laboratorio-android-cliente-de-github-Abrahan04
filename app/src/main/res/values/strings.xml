@@ -1,17 +1,10 @@
 <resources>
     <string name="app_name">Github Client</string>
+    <string name="test_text">Este es un texto de prueba</string>
     <string name="repo_name">Nombre del repositorio</string>
     <string name="repo_description">Descripción del repositorio</string>
     <string name="repo_lang">Lenguaje</string>
-    <string name="test_text">Texto de prueba</string>
-    <string name="image_description">Imagen del dueño del repositorio</string>
-    <string name="logo_description">Logo del proyecto</string>
-
-    <string name="fab_add_task">Agregar Tarea</string>
-    <string name="title_new_project">Nuevo Proyecto</string>
-    <string name="hint_new_project_name">Nombre del Repooooo</string>
-    <string name="hint_new_project_details">Detalles del repo</string>
-    <string name="btn_save">Guardar</string>
-    <string name="msg_project_saved_ok">Repositorio guardado con éxito</string>
-
+    <string name="test_lang">Kotlin</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
 </resources>

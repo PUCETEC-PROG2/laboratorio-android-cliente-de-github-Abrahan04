@@ -16,7 +16,7 @@ class RepoViewHolder(private val binding: FragmentRepoItemBinding) : RecyclerVie
     fun bind(repo: Repo) {
         binding.repoName.text = repo.name
         binding.repoDescription.text = repo.description ?: "El repositorio no tiene descripción"
-        binding.repoLanguage.text = repo.language ?: "Lenguaje no especificado"
+        binding.repoLang.text = repo.language ?: "Lenguaje no especificado"
         Glide.with(binding.root.context)
             .load(repo.owner.avatarUrl)
             .placeholder(R.mipmap.ic_launcher)
@@ -29,8 +29,10 @@ class RepoViewHolder(private val binding: FragmentRepoItemBinding) : RecyclerVie
 // 3. Clase Adapter: Gestiona la creación y actualización de los ViewHolders.
 class ReposAdapter : RecyclerView.Adapter<RepoViewHolder>() {
 
-    private var repositories : List<Repo> = emptyList()
+    private var repositories: List<Repo> = emptyList()
     override fun getItemCount(): Int = repositories.size
+
+
 
     // Se llama para crear un nuevo ViewHolder cuando el RecyclerView lo necesita.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {
