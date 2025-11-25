@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         setupRecyclerView()
-        // Llamamos a la API al iniciar
+        // Llamamos a la API
         fetchRepositories()
     }
 
