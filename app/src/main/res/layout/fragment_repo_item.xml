@@ -1,100 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".RepoItem">
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp"
+    app:strokeWidth="0dp"
+    android:backgroundTint="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp"
-        >
-        <ImageView
-            android:id="@+id/repo_owner_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_launcher_foreground"
-            android:layout_gravity="center"/>
+        android:padding="16dp">
 
+        <!-- Columna Izquierda: Avatar y Botones -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginEnd="16dp">
+
+            <ImageView
+                android:id="@+id/repo_owner_image"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ic_launcher_foreground"
+                android:layout_marginBottom="12dp"
+                tools:ignore="ContentDescription" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <ImageButton
+                    android:id="@+id/edit_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/edit_24"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="@color/puce_blue"
+                    android:layout_marginEnd="24dp"
+                    android:contentDescription="Editar" />
+
+                <ImageButton
+                    android:id="@+id/delete_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/delete_24"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="@color/delete_red"
+                    android:contentDescription="Eliminar" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Columna Derecha: Detalles -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Fila Nombre -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:text="@string/repo_name"
                     android:textStyle="bold"
-                    android:padding="8dp"
-
-                    />
-
+                    android:textColor="#555555"
+                    android:textSize="13sp"
+                    android:lineSpacingExtra="2dp"/>
 
                 <TextView
                     android:id="@+id/repo_name"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="@string/test_text"
-                    android:padding="8dp"
-                    />
-
+                    android:layout_marginStart="8dp"
+                    tools:text="examen-parcial-django-vistas-templates"
+                    android:textColor="#333333"
+                    android:textSize="13sp" />
             </LinearLayout>
+
+            <!-- Fila Descripción -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
 
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:text="@string/repo_description"
                     android:textStyle="bold"
-                    android:padding="8dp"
-                    />
+                    android:textColor="#555555"
+                    android:textSize="13sp"
+                    android:lineSpacingExtra="2dp"/>
 
                 <TextView
                     android:id="@+id/repo_description"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="@string/test_text"
-                    android:padding="8dp"
-                    />
-
+                    android:layout_marginStart="8dp"
+                    tools:text="desarrollo-web-2026-1-examen-parcial"
+                    android:textColor="#333333"
+                    android:textSize="13sp" />
             </LinearLayout>
+
+            <!-- Fila Lenguaje -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/repo_lang"
+                    android:text="Lenguaje"
                     android:textStyle="bold"
-                    android:padding="8dp"
-                    />
+                    android:textColor="#555555"
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/repo_lang"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="@string/test_text"
-                    android:padding="8dp"
-                    />
-
-
+                    android:layout_marginStart="8dp"
+                    tools:text="Python"
+                    android:textColor="#333333"
+                    android:textSize="13sp" />
             </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
-
-
-</FrameLayout>
+</com.google.android.material.card.MaterialCardView>

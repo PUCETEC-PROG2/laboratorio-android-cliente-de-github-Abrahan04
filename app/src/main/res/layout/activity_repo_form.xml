@@ -10,13 +10,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        >
         <EditText
             android:id="@+id/repo_name_input"
             android:layout_width="match_parent"
@@ -35,8 +35,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingVertical="24dp"
             android:orientation="horizontal"
-            android:paddingVertical="24dp">
+            >
 
             <Button
                 android:id="@+id/cancel_button"
@@ -45,17 +46,23 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
                 style="?attr/materialIconButtonOutlinedStyle"
-                android:text="@string/cancel" />
+                android:text="@string/cancel"/>
 
             <Button
                 android:id="@+id/save_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/save" />
+                android:text="@string/save"/>
+
+
 
         </LinearLayout>
 
+
+
+
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

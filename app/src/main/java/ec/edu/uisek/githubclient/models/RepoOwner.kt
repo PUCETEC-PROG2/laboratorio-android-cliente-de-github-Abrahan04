@@ -8,5 +8,4 @@ data class RepoOwner(
     @SerializedName("avatar_url")
     val avatarUrl: String
 
-
 )

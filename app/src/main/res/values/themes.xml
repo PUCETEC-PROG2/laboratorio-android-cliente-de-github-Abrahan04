@@ -2,13 +2,14 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.GithubClient" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/uisek_blue</item>
+        <item name="colorPrimary">@color/puce_blue</item>
     </style>
 
     <style name="Theme.GithubClient" parent="Base.Theme.GithubClient" />
-
+    
     <style name="ShapeAppearance.App.Circle" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+
     </style>
 </resources>
